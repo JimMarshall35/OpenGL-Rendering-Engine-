@@ -324,6 +324,7 @@ void ModelLoader::processNode(aiNode* node, ModelDrawNode* targetParent, glm::ma
     if (node->mNumMeshes > 0) {
         ModelDrawNode* newObject = new ModelDrawNode();
         targetParent->myChildren.push_back(newObject);
+        // to do - accumulate transforms properly - pretty sure this way isn't right. need to collect in vector and reverse it i think
         newObject->myTransform = transform = convertMatrix(node->mTransformation) * accTransform;
         // copy the meshes
         for (size_t i = 0; i < node->mNumMeshes; i++)
