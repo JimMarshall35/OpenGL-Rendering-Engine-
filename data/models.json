@@ -1,0 +1,48 @@
+{
+    "models": [
+        {
+            "path": "Rigged Hand.fbx",
+            "key": "hands"
+        },
+        {
+            "path": "cube.fbx",
+            "key": "cube"
+        },
+        {
+            "key": "quad",
+            "positions": [
+                0.5,  0.5,  0.0, 
+                0.5, -0.5,  0.0, 
+               -0.5, -0.5,  0.0, 
+               -0.5,  0.0,  0.0  
+            ],
+            "uvs": [
+                1.0, 1.0,
+                1.0, 0.0,
+                0.0, 0.0,
+                0.0, 1.0
+            ],
+            "indices": [
+                0,
+                1,
+                3,
+                1,
+                2,
+                3
+            ],
+            "texture" : "textures\\HAND_C.jpg"
+        }
+    ],
+	"shaders" : [
+		{
+			"vertex" :"shaders/phongvert.shader",
+			"fragment" :"shaders/phongfrag.shader",
+			"key" : "phong"
+		},
+		{
+			"vertex" :"shaders/texturevert.shader",
+			"fragment" :"shaders/texturefrag.shader",
+			"key" : "texture"
+		}
+	]
+}
