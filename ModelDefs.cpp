@@ -25,6 +25,7 @@ void Model::draw(Shader* shader, Transform transform)
     */
 }
 void Model::recursiveDraw(ModelDrawNode* targetParent, glm::mat4 accTransform,Shader* shader) {
+    // to do - accumulate transforms properly
     accTransform = accTransform*targetParent->myTransform;
     for (size_t i = 0; i < targetParent->myMeshes.size(); i++) {
         Mesh* mesh = targetParent->myMeshes[i];
