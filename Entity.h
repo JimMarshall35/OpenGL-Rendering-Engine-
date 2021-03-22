@@ -15,10 +15,11 @@ public:
     void setShader(Shader* s) { shader = s; }
     void draw(void);
     std::string getModelName() { return modelname; }
+    Shader* shader;
 private:
     std::string modelname;
     //void setUniforms(void);
     Model* model;
-    Shader* shader;
+    
 };
 

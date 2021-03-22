@@ -42,6 +42,8 @@ void Model::setUniforms(Transform transform, Shader* shader)
 {
     GLClearErrors();
 
+
+
     const glm::mat4 modelmatrix = transform.getModelMatrix();
     shader->setMat4("model", modelmatrix);
     GLPrintErrors("set uniforms - model");
@@ -107,12 +109,48 @@ void Mesh::genBuffers(void)
 
 void Mesh::draw(Shader * shader, bool hasTextures, Material material)
 {
+    
     shader->use();
-    if (hasuvs && hasTextures) {
-        GLuint texture = material.textures[0].id;
-        glBindTexture(GL_TEXTURE_2D, texture);
-    }
     GLClearErrors();
+    if (hasuvs && hasTextures) {
+        for (int i = 0; i < material.textures.size(); i++) {
+            Texture m = material.textures[i];
+            switch (m.type) {
+            case TextureType::SPECULAR:
+                shader->setInt("material.specular", 1);
+                glActiveTexture(GL_TEXTURE1);
+                GLPrintErrors("glActiveTexture setting specular texture");
+                glBindTexture(GL_TEXTURE_2D, m.id);
+                GLPrintErrors("glBindTexture setting specular texture");
+                break;
+            case TextureType::AMBIENT:
+            case TextureType::DIFFUSE:
+
+                shader->setInt("material.diffuse", 0);
+                glActiveTexture(GL_TEXTURE0);
+                GLPrintErrors("glActiveTexture setting diffuse texture");
+                glBindTexture(GL_TEXTURE_2D, m.id);
+                GLPrintErrors("glBindTexture setting diffuse texture");
+                break;
+            
+            }
+            shader->setFloat("material.shininess", material.shininess);
+            GLPrintErrors("setting shininess");
+        }
+    }
+    else {
+        shader->setVec3("material.ambient", material.ambient);
+        GLPrintErrors("setting ambient colour");
+        shader->setVec3("material.diffuse", material.diffuse);
+        GLPrintErrors("setting diffuse colour");
+        shader->setVec3("material.specular", material.specular);
+        GLPrintErrors("setting specular colour");
+        shader->setFloat("material.shininess", material.shininess);
+        GLPrintErrors("setting shininess");
+    }
+
+    shader->setVec3("viewPos", Cameras::instance().getActive()->Position);
+    GLPrintErrors(" setting shininess");
     glBindVertexArray(myVAO);
     GLPrintErrors("glBindVertexArray");
     glDrawElements(GL_TRIANGLES, faceIndices.size(), GL_UNSIGNED_INT, 0);

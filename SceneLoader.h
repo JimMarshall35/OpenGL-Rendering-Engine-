@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "jsonhelper.h"
 class SceneLoader
 {
 public:
@@ -14,5 +15,8 @@ public:
 private:
     SceneLoader(){}
     static SceneLoader* _instance;
+    void loadPointLights(Scene& scene, const rapidjson::Document& doc);
+    void loadEntities(Scene& scene, const rapidjson::Document& doc);
+    void loadDirectionalLight(Scene& scene, const rapidjson::Document& doc);
 };
 

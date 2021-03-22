@@ -1,0 +1,11 @@
+﻿  ModelDefs.cpp
+c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\libs\glm\detail\type_quat.hpp(48): warning C4201: nonstandard extension used: nameless struct/union
+  c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\libs\glm\detail\type_quat.hpp(133): note: see reference to class template instantiation 'glm::qua<T,Q>' being compiled
+c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\example_glfw_opengl3\shader.h(52): warning C4101: 'e': unreferenced local variable
+c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\example_glfw_opengl3\modeldefs.cpp(66): warning C4018: '<': signed/unsigned mismatch
+c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\example_glfw_opengl3\modeldefs.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\libs\glm\ext\matrix_transform.inl(147): warning C4127: conditional expression is constant
+  c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\libs\glm\ext\matrix_transform.inl(147): note: consider using 'if constexpr' statement instead
+  c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\example_glfw_opengl3\camera.h(74): note: see reference to function template instantiation 'glm::mat<4,4,glm::f32,0> glm::lookAt<float,0>(const glm::vec<3,float,0> &,const glm::vec<3,float,0> &,const glm::vec<3,float,0> &)' being compiled
+c:\users\user1\documents\serious game dev\imgui-master\imgui-master\examples\example_glfw_opengl3\errorhandliong.h(7): warning C4505: 'GLPrintErrors': unreferenced local function has been removed
+  example_glfw_opengl3.vcxproj -> C:\Users\User1\Documents\serious game dev\imgui-master\imgui-master\examples\example_glfw_opengl3\Debug\example_glfw_opengl3.exe
